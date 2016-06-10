@@ -1,0 +1,73 @@
+<div class="navbar-separator"></div>
+
+<div *ngIf="isAuth== 'yes'">
+    <div class="container" id="all-vehicles">
+        <h2>Rent a Car Agencija: sva vozila</h2>
+
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">Informacije o vozilima</div>
+
+            <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+                <thead>
+                    <tr>
+                        <th style="width: 2%"></th>
+                        <th style="width: 2%">
+                            <mfDefaultSorter by="proizvodjac_naziv">Proizvodjač</mfDefaultSorter>
+                        </th>
+                        <th style="width: 5%">
+                            <mfDefaultSorter by="model_naziv">Model</mfDefaultSorter>
+                        </th>
+                        <th style="width: 2%">
+                            <mfDefaultSorter by="vrsta_modela">Vrsta Modela</mfDefaultSorter>
+                        </th>
+                        <th style="width: 5%">
+                            <mfDefaultSorter by="broj_sasije">Broj Šasije</mfDefaultSorter>
+                        </th>
+                        <th style="width: 5%">
+                            <mfDefaultSorter by="registracija">Registracija</mfDefaultSorter>
+                        </th>
+                        <th style="width: 5%">
+                            <mfDefaultSorter by="kilometraza">Kilometraza</mfDefaultSorter>
+                        </th>
+                        <th style="width: 5%">
+                            <mfDefaultSorter by="kategorija">Kategorija</mfDefaultSorter>
+                        </th>
+                        <th style="width: 5%">
+                            <mfDefaultSorter by="cena">Cena</mfDefaultSorter>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of mf.data">
+                        <td>
+                            <button class="btn btn-danger" title="remove" (click)="removeItem(item.vozilo_id)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                        </td>
+                        <td>{{item.proizvodjac_naziv}}</td>
+                        <td>{{item.model_naziv}}</td>
+                        <td>{{item.vrsta_modela}}</td>
+                        <td>{{item.broj_sasije}}</td>
+                        <td>{{item.registracija}}</td>
+                        <td>{{item.kilometraza}}</td>
+                        <td>{{item.kategorija}}</td>
+                        <td>{{item.cena}}&euro;</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="9">
+                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer class="navbar-fixed-bottom">
+    <div class="container">
+        <span>Rent a Car Agencija &copy; 2016. All rights reserved</span>
+    </div>
+</footer>

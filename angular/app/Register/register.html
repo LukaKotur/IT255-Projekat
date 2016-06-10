@@ -1,0 +1,32 @@
+<div class="navbar-separator"></div>
+<div class="container" id="register">
+  <h2 class="text-center form-headline">Enter the required info to make an account:</h2>
+  <form class="col-lg-6 col-lg-offset-3" role="form" [ngFormModel]="registerForm">
+    <div class="alert alert-danger" style="display: none;">
+
+    </div>
+    <div class="form-group">
+      <label for="firstName">First name:</label>
+      <input type="text" class="form-control" ngControl='firstName'>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last name:</label>
+      <input type="text" class="form-control" ngControl='lastName'>
+    </div>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" ngControl='username'>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" ngControl='password'>
+    </div>
+    <button (click)="onRegister()" class="btn btn-dark col-lg-12">Register</button>
+  </form>
+</div>
+
+<footer class="navbar-fixed-bottom">
+  <div class="container">
+    <span>Rent a Car Agencija &copy; 2016. All rights reserved</span>
+  </div>
+</footer>

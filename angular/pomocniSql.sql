@@ -1,0 +1,3 @@
+
+
+SELECT proizvodjac.NAZIV as proizvodjac_naziv, model.NAZIV as model_naziv, vrsta_modela.VRSTA as vrsta_modela, vozilo.vozilo_id, vozilo.broj_sasije, vozilo.registracija, vozilo.kubikaza, vozilo.kilometraza, vozilo.kategorija, vozilo.cena FROM vozilo join vrsta_modela  ON vozilo.VRSTA_MODELA_ID = vrsta_modela.VRSTA_MODELA_ID join model  on vrsta_modela.MODEL_ID = model.MODEL_ID join proizvodjac on model.PROIZVODJAC_ID = proizvodjac.PROIZVODJAC_ID

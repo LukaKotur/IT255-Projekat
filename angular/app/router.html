@@ -1,0 +1,61 @@
+<div class="header-bg">
+
+  <nav *ngIf="isHome == 'no'" ngClass= "navbar-dark" class="navbar"  id="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+        <a class="navbar-brand" [routerLink]="['./']">Rent a Car</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li [class.active]="currentUrl.length == 78"><a [routerLink]="['./']">Home <span class="sr-only">(current)</span></a></li>
+          <li [class.active]="router.urlTree.contains(router.createUrlTree(['contact']))"><a [routerLink]="['./contact']">Contact</a></li>
+          <!--<li *ngIf="isAuth == 'no'" [class.active]="router.urlTree.contains(router.createUrlTree(['register']))"><a [routerLink]="['./register']">Register</a></li>-->
+          <!--<li *ngIf="isAuth == 'no'" [class.active]="router.urlTree.contains(router.createUrlTree(['login']))"><a [routerLink]="['./login']">Login</a></li>-->
+          <li *ngIf="isAuth== 'yes'" [class.active]="router.urlTree.contains(router.createUrlTree(['add']))"><a [routerLink]="['./add']">Dodaj Vozila i Servis</a></li>
+          <li *ngIf="isAuth == 'yes'" [class.active]="router.urlTree.contains(router.createUrlTree(['allvehicles']))"><a [routerLink]="['./allvehicles']">Sva vozila</a></li>
+          <li *ngIf="isAuth == 'yes'"><a (click)="onLogout()">Logout</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+  <nav *ngIf="isHome == 'yes'" class="navbar"  id="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+        <a class="navbar-brand" [routerLink]="['./']">Rent a Car</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li [class.active]="currentUrl.length == 78"><a [routerLink]="['./']">Home <span class="sr-only">(current)</span></a></li>
+          <li [class.active]="router.urlTree.contains(router.createUrlTree(['contact']))"><a [routerLink]="['./contact']">Contact</a></li>
+          <!--<li *ngIf="isAuth == 'no'" [class.active]="router.urlTree.contains(router.createUrlTree(['register']))"><a [routerLink]="['./register']">Register</a></li>
+          <li *ngIf="isAuth == 'no'" [class.active]="router.urlTree.contains(router.createUrlTree(['login']))"><a [routerLink]="['./login']">Login</a></li>-->
+          <li *ngIf="isAuth== 'yes'" [class.active]="router.urlTree.contains(router.createUrlTree(['add']))"><a [routerLink]="['./add']">Dodaj Vozila i Servis</a></li>
+          <li *ngIf="isAuth == 'yes'" [class.active]="router.urlTree.contains(router.createUrlTree(['allvehicles']))"><a [routerLink]="['./allvehicles']">Sva vozila</a></li>
+          <li *ngIf="isAuth == 'yes'"><a (click)="onLogout()">Logout</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+  </nav>
+</div>
+<router-outlet></router-outlet>

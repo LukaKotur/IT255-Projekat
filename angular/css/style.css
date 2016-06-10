@@ -1,0 +1,364 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover, a:focus {
+  color: #fff;
+}
+
+#navigation {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: transparent;
+  margin-bottom: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+
+#navigation .icon-bar {
+  color: #fff;
+  background-color: #fff;
+}
+
+#navigation ul > li > a {
+  color: #fff;
+  font-weight: 600;
+}
+
+#navigation ul > li > a:hover, #navigation ul > li > a:focus {
+  color: #fff;
+  background-color: #000;
+}
+
+.navbar-separator {
+  margin-top: 51px;
+}
+
+.navbar-dark {
+  background-color: #332f2d !important;
+}
+
+#section-1 {
+  display: table;
+  position: relative;
+  background: url("../images/header_bg.jpg") no-repeat center center scroll;
+  -webkit-box-shadow: inset 0 0 100px 400px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 0 100px 400px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 100px 400px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 100%;
+  height: 80%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+#section-1 h1 {
+  margin-top: 35vh;
+  text-shadow: #332f2d 5px 2px 4px;
+}
+
+#section-1 p {
+  font-size: 18px;
+  text-shadow: #332f2d 5px 2px 4px;
+}
+
+#about {
+  background: url("../images/about_bg.jpg") no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+}
+
+#about h2 {
+  font-size: 44px;
+  color: #282523;
+  margin-bottom: 20px;
+}
+
+#about p {
+  margin-bottom: 20px;
+}
+
+.btn-dark {
+  border-radius: 0;
+  outline: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 20px;
+  background-color: #332f2d;
+  text-transform: uppercase;
+}
+
+.btn-dark:hover, .btn-dark:focus {
+  background-color: #999;
+  color: #332f2d;
+}
+
+#our-cars h2 {
+  margin-top: 50px;
+}
+
+.car-grid img {
+  min-height: 244px;
+  max-height: 244px;
+}
+
+.box {
+  padding: 10px;
+  margin: 30px auto;
+}
+
+.box .btn-dark {
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+.box .btn-dark:hover {
+  opacity: 1;
+  background-color: #332f2d;
+  color: #fff;
+}
+
+#servis {
+  -webkit-box-shadow: inset 0 0 50px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 50px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 50px 10px rgba(0, 0, 0, 0.1);
+}
+
+#servis form {
+  margin-top: 50px;
+  margin-bottom: 50px !important;
+  overflow: hidden;
+}
+
+#servis .btn-dark {
+  margin-top: 23px;
+  padding: 12.5px;
+}
+
+#servis h2 {
+  margin-top: 50px;
+}
+
+.text-bg {
+  background-color: #332f2d;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+footer {
+  background-color: #332f2d;
+  padding: 40px;
+  color: #fff;
+}
+
+#tabs {
+  color: #332f2d;
+  margin-top: 10px;
+}
+
+#tabs a {
+  color: #332f2d;
+}
+
+#tabs a:focus, #tabs a:hover, #tabs a:active {
+  color: #fff;
+  background-color: #332f2d;
+}
+
+#tabs a.active {
+  background-color: #332f2d;
+}
+
+#add-proizvodjac {
+  margin-top: 20vh;
+}
+
+#add-proizvodjac h3 {
+  margin-bottom: 5vh;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  color: #fff !important;
+  cursor: default;
+  background-color: #332f2d;
+  border: 1px solid #332f2d;
+  border-bottom-color: transparent;
+}
+
+#add-model {
+  margin-top: 20vh;
+}
+
+#add-model h3 {
+  margin-bottom: 2vh;
+}
+
+#contact {
+  margin-top: 10vh;
+}
+
+#contact a {
+  color: #332f2d;
+}
+
+#contact_form {
+  margin-top: 10vh;
+}
+
+#contact_form div.row {
+  padding: 15px;
+}
+
+.info {
+  margin-top: 10vh;
+}
+
+.info p {
+  padding: 5px;
+  font-size: 18px;
+}
+
+.info .fa-facebook:hover {
+  color: #3b5998;
+  font-size: 22px;
+}
+
+.info .fa-twitter:hover {
+  color: #00aced;
+  font-size: 22px;
+}
+
+.info #social {
+  font-size: 18px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#login {
+  margin-top: 28vh;
+}
+
+#login h2 {
+  font-size: 27px;
+  margin-bottom: 2vh;
+}
+
+#register {
+  margin-top: 23vh;
+}
+
+#register h2 {
+  font-size: 27px;
+  margin-bottom: 2vh;
+}
+
+#all-vehicles a {
+  color: #332f2d;
+}
+
+#h1-warning {
+  margin-top: 35vh;
+}
+
+.modal-dialog {
+  border-radius: 0;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-content .close {
+  font-size: 30px;
+}
+
+.modal-content .btn-dark {
+  margin-top: 20px;
+}
+
+.modal-content p {
+  font-size: 16px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+textarea.form-control {
+  height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: middle;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  overflow: hidden;
+  color: #888;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+textarea,
+textarea.form-control {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 30px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+textarea.form-control:focus {
+  outline: 0;
+  background: #fff;
+  border: 3px solid #ccc;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="email"]:-moz-placeholder,
+textarea:-moz-placeholder, textarea.form-control:-moz-placeholder {
+  color: #888;
+}
+
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder,
+textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder {
+  color: #888;
+}
+
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder {
+  color: #888;
+}

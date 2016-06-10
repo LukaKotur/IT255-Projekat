@@ -1,0 +1,183 @@
+<div class="navbar-separator">
+</div>
+
+<div class="container">
+  <ul class="nav nav-tabs" id="tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Dodaj proizvođača</a></li>
+    <li><a data-toggle="tab" href="#menu1">Dodaj Model</a></li>
+    <li><a data-toggle="tab" href="#menu3">Dodaj Vozilo</a></li>
+    <li><a data-toggle="tab" href="#menu6">Dodaj Sliku</a></li>
+    <li><a data-toggle="tab" href="#menu4">Dodaj Servis</a></li>
+    <li><a data-toggle="tab" href="#menu5">Dodaj Servisera</a></li>
+  </ul>
+
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <div class="container" id="add-proizvodjac">
+        <h3 class="text-center">Upišite ime proizvođača kako bi ga dodali u bazu</h3>
+        <form class="col-lg-6 col-lg-offset-3" role="form" [ngFormModel]="registerForm">
+          <div class="form-group">
+            <label for="proizvodjacNaziv">Naziv:</label>
+            <input type="text" class="form-control" ngControl='proizvodjacNaziv'>
+          </div>
+          <input [disabled]="!registerForm.valid" value="Dodaj"  (click)="onAddProizvodjac()" class="btn btn-dark">
+        </form>
+      </div>
+    </div>
+
+    <div id="menu1" class="tab-pane fade in">
+      <div class="container" id="add-model">
+        <h3 class="text-center">Izaberite proizvodjaca i potom unesite ime modela</h3>
+        <form class="col-lg-6 col-lg-offset-3" role="form" [ngFormModel]="myModelForm">
+          <div class="form-group">
+            <label for="proizvodjacId">Izaberite proizvođača:</label>
+            <select class="form-control" ngControl="proizvodjacId" [ngModel]="selectedItem" (ngModelChange)="onChange($event)"> 
+              <option *ngFor="let item of dataP" [ngValue]="item.proizvodjac_id">{{item.naziv}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modelNaziv">Naziv :</label>
+            <input type="text" class="form-control" ngControl='modelNaziv'>
+          </div>
+          <div class="form-group">
+            <label for="vrsta">Vrsta <span class="text-muted">(npr. 1.6 TDI)</span>:</label>
+            <input type="text" class="form-control" ngControl='vrsta'>
+          </div>
+           <input [disabled]="!myModelForm.valid" value="Dodaj"  (click)="onAddModel()" class="btn btn-dark">
+        </form>
+      </div>
+    </div>
+
+
+    <div id="menu3" class="tab-pane fade in">
+      <div class="container" id="add-vehicle">
+        <h3 class="text-center">Unesite sve vrednosti kako bi uneli vozilo</h3>
+        <form class="col-lg-6 col-lg-offset-3" role="form" [ngFormModel]="myVoziloForm">
+          <div class="form-group">
+            <label for="proizvodjacId">Izaberite proizvođača:</label>
+            <select class="form-control" ngControl='proizvodjacId' [ngModel]="selectedItem" (ngModelChange)="onChange($event)"> 
+              <option *ngFor="let item of dataP" [ngValue]="item.proizvodjac_id">{{item.naziv}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modelId">Izaberite model:</label>
+            <select class="form-control" ngControl='modelId' [ngModel]="selectedItem2" (ngModelChange)="onChange2($event)"> 
+              <option *ngFor="let item of dataM" [ngValue]="item.model_id">{{item.naziv}} {{item.vrsta}}</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-6 col-xs-6">
+            <label for="vrstaModelNaziv">Broj šasije:</label>
+            <input type="text" class="form-control" ngControl='brojSasije'>
+          </div>
+          <div class="form-group col-lg-6 col-xs-6">
+            <label for="vrstaModelNaziv">Registracija :</label>
+            <input type="text" class="form-control" ngControl='registracija'>
+          </div>
+          <div class="form-group col-lg-6 col-xs-6">
+            <label for="vrstaModelNaziv">Kubikaža:</label>
+            <input type="text" class="form-control" ngControl='kubikaza'>
+          </div>
+          <div class="form-group col-lg-6 col-xs-6">
+            <label for="vrstaModelNaziv">Kilometraža:</label>
+            <input type="text" class="form-control" ngControl='kilometraza'>
+          </div>
+          <div class="form-group col-lg-6 col-xs-6">
+            <label for="vrstaModelNaziv">Kategorija <span class="text-muted">(npr. Limuzina)</span>:</label>
+            <input type="text" class="form-control" ngControl='kategorija'>
+          </div>
+           <div class="form-group col-lg-6 col-xs-6">
+            <label for="vrstaModelNaziv">Cena:</label>
+            <input type="text" class="form-control" ngControl='cena'>
+          </div>
+
+          <input [disabled]="!myVoziloForm.valid" value="Dodaj"  (click)="onAddVozilo()" class="btn btn-dark col-lg-12">
+        </form>
+      </div>
+    </div>
+
+    <div id="menu4" class="tab-pane fade in">
+      <div class="container" id="add-servis">
+        <h3 class="text-center">Izaberite servisera i vozilo, a potom unesite neophodne informacije</h3>
+        <form class="col-lg-6 col-lg-offset-3" role="form" [ngFormModel]="myServisForm">
+          <div class="form-group">
+            <label for="serviserId">Izaberite servisera:</label>
+            <select class="form-control" ngControl="serviserId" [ngModel]="selectedItem" (ngModelChange)="onChange($event)"> 
+              <option *ngFor="let item of dataS" [ngValue]="item.serviser_id">{{item.ime_servisa}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="voziloId">Izaberite vozilo:</label>
+            <select class="form-control" ngControl="voziloId" [ngModel]="selectedItem2" (ngModelChange)="onChange2($event)"> 
+              <option *ngFor="let item of data" [ngValue]="item.vozilo_id">{{item.proizvodjac_naziv}} {{item.model_naziv}} {{item.registracija}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="datum">Datum <span class="text-muted">yyyy-mm-dd</span>:</label>
+            <input type="text" class="form-control" ngControl='datum' required>
+          </div>
+          <div class="form-group">
+            <label for="brojKilometara">Pređenih kilometara:</label>
+            <input type="text" class="form-control" ngControl='brojKilometara'>
+          </div>
+          <div class="form-group">
+            <label for="opis">Opis servisa <span class="text-muted">(zamenjeni delovi i ostali detalji servisa)</span> :</label>
+            <textarea class="form-control input" ngControl='opis' required></textarea>
+          </div>
+           <div class="form-group">
+            <label for="cena">Cena:</label>
+            <input type="text" class="form-control" ngControl='cena' required>
+          </div>
+          <input [disabled]="!myServisForm.valid" value="Dodaj" (click)="onAddServis()" class="btn btn-dark">
+        </form>
+      </div>
+    </div>
+
+    <div id="menu5" class="tab-pane fade in">
+      <div class="container" id="add-model">
+        <h3 class="text-center">Upišite ime i broj telefona servisa koga želite da dodate</h3>
+        <form class="col-lg-6 col-lg-offset-3" role="form" [ngFormModel]="myServiserForm">
+          <div class="form-group">
+            <label for="imeServisa">Ime servisa: </label>
+            <input type="text" class="form-control" ngControl='imeServisa'>
+          </div>
+          <div class="form-group">
+            <label for="brojTelefona">Broj telefona:</label>
+            <input type="text" class="form-control" ngControl='brojTelefona'>
+          </div>
+          <input [disabled]="!myServiserForm.valid" value="Dodaj" (click)="onAddServiser()" class="btn btn-dark">
+        </form>
+      </div>
+    </div>
+
+    <div id="menu6" class="tab-pane fade in">
+      <div class="container" id="add-model">
+        <h3 class="text-center">Izaberite vozilo i upišite putanju do slike</h3>
+        <form class="col-lg-6 col-lg-offset-3" role="form" [ngFormModel]="mySlikaForm">
+         <div class="form-group">
+            <label for="modelId">Izaberite vozilo:</label>
+            <select class="form-control" ngControl='voziloId' [ngModel]="selectedItem3" (ngModelChange)="onChange3($event)"> 
+              <option *ngFor="let item of dataVozT" [ngValue]="item.vozilo_id">{{item.proizvodjac_naziv}} {{item.model_naziv}} {{item.registracija}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="brojTelefona">Link <span class="text-muted">(format: http://www.blablbalba.com/slika.jpg)</span>:</label>
+            <input type="text" class="form-control" ngControl='putanja'>
+          </div>
+          <input [disabled]="!mySlikaForm.valid" value="Dodaj" (click)="onAddSlika()" class="btn btn-dark">
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<footer class="navbar-fixed-bottom">
+  <div class="container">
+    <span>Rent a Car Agencija &copy; 2016. All rights reserved</span>
+  </div>
+</footer>
