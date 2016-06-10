@@ -3,7 +3,7 @@
 
 ## Tehnologije
 - Frontend [Angular2][angular2]
-- Backend [PHP][PHP]
+- Backend [PHP]
 
 ## Uvod
 Ova Aplikacija predstavlja najosnovniju aplikaciju koju neka rent a car agencija moze da ima. U njoj su uradjene stvari kao sto su dodavanje vozila, proizvodjaca, modela, servisera i servisa kao i njihovo brisanje iz baze podataka.
