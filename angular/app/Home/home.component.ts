@@ -2,12 +2,13 @@ import { Component, Directive } from '@angular/core';
 import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
 import {FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES, FORM_BINDINGS} from '@angular/common'
 import 'rxjs/Rx';
-import {DataTableDirectives} from 'angular2-datatable/datatable'
+import { FilterPipe } from '../pipe/search.pipe';
 
 @Component({
+    pipes: [FilterPipe ],
     selector: 'Home',
     templateUrl: 'app/home/home.html',
-    directives: [FORM_DIRECTIVES, DataTableDirectives],
+    directives: [FORM_DIRECTIVES],
     providers: [HTTP_PROVIDERS],
     viewBindings: [FORM_BINDINGS]
 })
@@ -44,19 +45,22 @@ export class HomePageComponent {
                 this.dataS = dataS.serviser;
             },
             err => {
-                this.router.navigate(['./app']);
+                this.router.navigate(['./']);
             }
             );
 
         http.get('http://localhost/it255-projekat/php/getservis.php', { headers: headers })
             .map(res => res.json()).share()
             .subscribe(dataServis => {
-                this.dataServis = dataServis.servis;
-            },
-            err => {
-                this.router.navigate(['./app']);
-            }
-            );
+			this.dataServis = dataServis.servis; 
+			setInterval(function(){
+			$('table').DataTable();
+			},200);
+		},
+		err => {
+			 this.router.parent.navigate(['./Home']);
+		}
+		);
 
     }
 

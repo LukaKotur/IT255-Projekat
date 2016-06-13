@@ -10,13 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var datatable_1 = require('angular2-datatable/datatable');
-var search_pipe_1 = require('./pipe/search.pipe');
+require('rxjs/Rx');
 var AllVehiclesComponent = (function () {
     function AllVehiclesComponent(http) {
         var _this = this;
         this.http = http;
-        this.proizvodjac_naziv = "";
         this.sortByWordLength = function (a) {
             return a.name.length;
         };
@@ -27,8 +25,11 @@ var AllVehiclesComponent = (function () {
             .map(function (res) { return res.json(); }).share()
             .subscribe(function (data) {
             _this.data = data.vehiclestable;
+            setInterval(function () {
+                $('table').DataTable();
+            }, 200);
         }, function (err) {
-            _this.router.parent.navigate(['./']);
+            _this.router.parent.navigate(['./Home']);
         });
     }
     AllVehiclesComponent.prototype.ngOnInit = function () {
@@ -51,11 +52,9 @@ var AllVehiclesComponent = (function () {
     };
     AllVehiclesComponent = __decorate([
         core_1.Component({
-            pipes: [search_pipe_1.SearchPipe],
             selector: 'AllVehiclesPage',
             templateUrl: 'app/allvehicles/allvehicles.html',
             providers: [http_1.HTTP_PROVIDERS],
-            directives: [datatable_1.DataTableDirectives],
         }), 
         __metadata('design:paramtypes', [http_1.Http])
     ], AllVehiclesComponent);

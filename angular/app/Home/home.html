@@ -32,57 +32,31 @@
 
 <section id="servis">
     <div class="container">
-        <h2>Preuzeli ste vozilo i želite da pogledate istoriju servisa?</h2>
+        <h2>Želite da pogledate istoriju servisa za naša vozila?</h2>
         <hr>
-        <form role="form">
 
-            <div class="form-group col-lg-8 col-xs-12">
-                <label for="username">Registracioni broj:</label>
-                <input type="text" class="form-control">
-            </div>
-            <button class="btn  btn-dark col-lg-4 col-xs-12">Pronađi</button>
-        </form>
-
-    </div>
-
-    <div class="container" id="all-vehicles">
-        <div class="panel panel-default">
-            <div class="panel-heading text-center">Informacije o servisima vozila</div>
-
-            <table class="table table-striped" [mfData]="dataServis" #mf="mfDataTable" [mfRowsOnPage]="10">
+        <div class="col-lg-12">
+            <table class="display" cellspacing="0">
                 <thead>
                     <tr>
-                        <th *ngIf="isAuth == 'yes'" style="width: 2%"></th>
-                        <th style="width: 2%">
-                            <mfDefaultSorter by="ime_servisa">Serviser</mfDefaultSorter>
-                        </th>
-                        <th style="width: 5%">
-                            <mfDefaultSorter>Broj telefona</mfDefaultSorter>
-                        </th>
-                        <th style="width: 2%">
-                            <mfDefaultSorter by="registracija">Registracija</mfDefaultSorter>
-                        </th>
-                        <th style="width: 5%">
-                            <mfDefaultSorter by="datum">Datum</mfDefaultSorter>
-                        </th>
-                        <th style="width: 5%">
-                            <mfDefaultSorter by="predjenih_kilometara">Predjenih kilometara</mfDefaultSorter>
-                        </th>
-                        <th style="width: 5%">
-                            <mfDefaultSorter>Opis</mfDefaultSorter>
-                        </th>
-                        <th style="width: 5%">
-                            <mfDefaultSorter by="cena">Cena</mfDefaultSorter>
-                        </th>
+                        <th *ngIf="isAuth== 'yes'"></th>
+                        <th>Ime servisa: </th>
+                        <th>Broj telefona: </th>
+                        <th>Registracija: </th>
+                        <th>Datum: </th>
+                        <th>Predjenih kilometara: </th>
+                        <th>Opis: </th>
+                        <th>Cena: </th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr *ngFor="let item of mf.data">
-                        <td *ngIf="isAuth == 'yes'">
+                    <tr *ngFor="let item of dataServis">
+                        <th *ngIf="isAuth== 'yes'">
                             <button class="btn btn-danger" title="remove" (click)="removeItem(item.servis_id)">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>
-                        </td>
+                        </th>
                         <td>{{item.ime_servisa}}</td>
                         <td>{{item.broj_telefona}}</td>
                         <td>{{item.registracija}}</td>
@@ -92,16 +66,10 @@
                         <td>{{item.cena}}&euro;</td>
                     </tr>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="8">
-                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
-                        </td>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>
+
 </section>
 
 

@@ -1,21 +1,18 @@
 import { Component, Directive } from '@angular/core';
-import {FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES, FORM_BINDINGS, NgClass, NgStyle} from '@angular/common'
-import {Http, HTTP_PROVIDERS, Headers} from '@angular/http'
-import {DataTableDirectives} from 'angular2-datatable/datatable'
-import {SearchPipe} from './pipe/search.pipe'
+import { FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES, FORM_BINDINGS} from '@angular/common'
+import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
+import 'rxjs/Rx';
+import {Router, ROUTER_PROVIDERS} from '@angular/router'
 
 
 
 @Component({
-    pipes: [SearchPipe],
     selector: 'AllVehiclesPage',
     templateUrl: 'app/allvehicles/allvehicles.html',
     providers: [HTTP_PROVIDERS],
-    directives: [DataTableDirectives], 
 })
 
 export class AllVehiclesComponent {
-    proizvodjac_naziv: String = "";
     private data: Object[];
     isAuth: String;
     
@@ -30,12 +27,15 @@ export class AllVehiclesComponent {
         http.get('http://localhost/it255-projekat/php/getvehiclestable.php', { headers: headers })
             .map(res => res.json()).share()
             .subscribe(data => {
-                this.data = data.vehiclestable;
-            },
-            err => {
-                this.router.parent.navigate(['./']);
-            }
-            )
+			this.data = data.vehiclestable; 
+			setInterval(function(){
+			$('table').DataTable();
+			},200);
+		},
+		err => {
+			 this.router.parent.navigate(['./Home']);
+		}
+		);
     }
 
 
